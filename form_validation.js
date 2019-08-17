@@ -29,6 +29,7 @@ function validate_form(){
 		{ 
 			first_name = "First Name"
 			document.getElementById('error_msg').innerHTML =  "Fields cannot be empty";
+			document.getElementById("error_msg").focus();
 			return false;
 		}else{}
 	
@@ -36,6 +37,7 @@ function validate_form(){
 	if(/(.+)@(.+){2,}\.(.+){2,}/.test(email)) 
 	{}else{
 		document.getElementById('error_msg').innerHTML =  "Email provided is not valid";
+		document.getElementById("error_msg").focus();
         return false
 	}
 
@@ -45,9 +47,11 @@ function validate_form(){
 		if(password.match(password_check)){}
 		else{
 		document.getElementById('error_msg').innerHTML =  "Password must contain at least an Uppercase, Lowercase and a Special Character. E.g. <b>ABcDef$G@ </b><br><i><b>This ensures tighter Security</b></i>";
+		document.getElementById("error_msg").focus();
         return false;}
     }else{
 		document.getElementById('error_msg').innerHTML =  "Password must be up to 8 characters long.<br><i><b>This ensures tighter Security</b></i>";
+	    	document.getElementById("error_msg").focus();
 		return false;
 	}
 	
@@ -55,6 +59,7 @@ function validate_form(){
 	if(password != password2) 
 	{ 
 		document.getElementById('error_msg').innerHTML =  "Passwords do not match,";
+		document.getElementById("error_msg").focus();
         return false;
     }else{return true;}
 }
